@@ -24,7 +24,7 @@ ELemType insterList(List* list, int i, ELemType e)
 		return ERROR;
 	}
 	// 如果插入的位置超过存储最大位置或者最小位置
-	if (i < 1 || i > list->length)
+	if (i < 1 || i > list->length + 1)
 	{
 		return ERROR;
 	}
@@ -42,5 +42,16 @@ ELemType insterList(List* list, int i, ELemType e)
 	return SUCCESS;
 }
 
+ELemType getElment(List* list, int i, ELemType * e)
+{
+	// 如果i超出线性表边界
+	if (i > list->length || i < 1)
+	{
+		return ERROR;
+	}
+    
+	*e = list->data[i - 1];
+	return SUCCESS;
 
+}
 
