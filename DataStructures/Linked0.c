@@ -78,3 +78,27 @@ ElemType  deleteElem(LinkList list, int i, ElemType * e)
 
 	return SUCCESS;
 }
+
+// 创建 n 个 链表
+LinkList createList(LinkList * list,int n)
+{
+	int i;
+	srand(time(0));
+	LinkList node;
+
+	// 创建头节点
+	*list = (LinkList)malloc(sizeof(LinkList));
+	(*list)->next = NULL;
+
+	for (i = 0; i < n; i++)
+	{
+		node = (LinkList)malloc(sizeof(LinkList));
+	    node->data = i;
+		// 指向头节点的下一个节点
+		node->next = (*list)->next;
+		// 头节点指向新的节点
+		(*list)->next = node;
+	}
+
+	return list;
+}
